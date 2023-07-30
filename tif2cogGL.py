@@ -14,8 +14,11 @@ The `run_command` function takes a `command` (a list of strings representing the
 
 It runs the provided subprocess command using the `run` function from the `subprocess` module, capturing the output of the command.
 
+If the command completes successully, it logs the successful command exectution and returns the `CompletedProcess` object. If not, it catches the `CalledProcessError`, performs some logging operations (omitted the code with `...` and raises an exception with relevant information).
 
+It checks if the command's executable is available in the system's PATH using the `which` function from the `shutil` module. If the executable is not found, it raises a `RuntimeError`.
 '''
+
 def run_command(command: List, timeout: int=600) -> CompletedProcess:
     """
     Run a subprocess command with error handling and logging functionality.
