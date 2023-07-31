@@ -5,3 +5,8 @@ Includes
 * tiling of RGB imagery and annotations
 * reconstruction of mosaic after model training
 * conversion from GeoTIFF to cloud-optimized GeoTIFF (COG) and point cloud to cloud-optimized point cloud (COPC)
+
+May be added
+* script for model training and inference
+* confusion matrices generation from predictions
+* metric per class generation from predictions
