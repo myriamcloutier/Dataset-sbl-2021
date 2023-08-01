@@ -25,7 +25,7 @@ m = aprx.listMaps('Map1')[0]
 
 # Create FeatureSharingDraft and set metadata, portal folder, and export data properties
 server_type = "HOSTING_SERVER"
-service_type = "IMAGE_TILE"
+service_type = "IMAGE_TILE" # Try "TILE"
 sddraft = m.getWebLayerSharingDraft(server_type, service_type, service_name)
 sddraft.summary = "This is summary"
 sddraft.tags = "sbl"

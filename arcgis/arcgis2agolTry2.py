@@ -25,34 +25,34 @@ print(outdir)
 service = ville + "_"+annee+"_PM25_moy"
 sddraft_file = outdir + '\\' + service + '.sddraft'
 
-##### ETAPE 1 - Création du fichier SDDraft depuis un projet ArcGIS Pro
+##### Step 1 - Creating SDDraft file from ArcGiS Pro project
 
 # Reference map to publish
 aprx = arcpy.mp.ArcGISProject(dir + r"/ARCGIS_projects/" + ville + '/' + ville + ".aprx")
 
-map = aprx.listMaps("LILLE_PM25_moy")[0]
+map = aprx.listMaps("Map")[0]
 
 # Create Tile Layer SharingDraft from map in ArcGisPro project
 sharing_draft = map.getWebLayerSharingDraft("HOSTING_SERVER", "TILE", service)
-print('Le brouillon de la WebLayer est créé.')
+print('Web Layer Sharing Draft was created.')
 
 # Create Service Definition Draft file
 sharing_draft.exportToSDDraft(sddraft_file)
-print('Le fichier du brouillon du service de Définition est créé')
+print('Service Definition Draft File was created.')
 
 
-##### ETAPE 2 - Création du fichier SD (Service Definition) depuis le fichier SDDraft
+##### Step 2 - Create SD file (Service Definition) from SDDraft file
 
 # Create Service definition file
 sd_file = outdir + '\\' + service + ".sd"
 arcpy.StageService_server(sddraft_file, sd_file)
-print('Le fichier de Service définition est créé')
+print('Service Definition was created.')
 
 
-##### ETAPE 3 - Publication de la couche de tuiles depuis le fichier SD
+##### Step 3 - Publication of the tiles layer from SD file
 
 # Share to portal as Tile Layer
 print("Uploading Service Definition...")
-arcpy.UploadServiceDefinition_server(sd_file, "My Hosted Services") #connexion à AGOL
+arcpy.UploadServiceDefinition_server(sd_file, "My Hosted Services") # connexion to AGOL
 
 print("Successfully Uploaded service.")
