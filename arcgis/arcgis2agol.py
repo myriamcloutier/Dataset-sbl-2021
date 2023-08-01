@@ -9,7 +9,7 @@ import arcpy
 import os
 
 # Sign in to portal
-arcpy.SignInToPortal("https://www.arcgis.com", "MyUserName", "MyPassword")
+arcpy.SignInToPortal("https://www.arcgis.com", "myriam.cloutier.4_umontreal", "Password")
 
 # Set output file names
 outdir = r"C:\Users\p1177632\Documents\ArcGIS\Projects\Dataset-sbl-2021\output"
@@ -25,7 +25,7 @@ m = aprx.listMaps('Map1')[0]
 
 # Create FeatureSharingDraft and set metadata, portal folder, and export data properties
 server_type = "HOSTING_SERVER"
-service_type = "IMAGE_TILE" # Try "TILE"
+service_type = "TILE" # Try "TILE"
 sddraft = m.getWebLayerSharingDraft(server_type, service_type, service_name)
 sddraft.summary = "This is summary"
 sddraft.tags = "sbl"
