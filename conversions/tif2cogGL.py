@@ -38,6 +38,18 @@ def run_command(command: List[str], timeout: int=600) -> CompletedProcess:
         else:
             raise ...
         
+
+'''
+The `tif2cog` function takes three arguments: `input_paths` (a list of `Path` objects representing input TIFF files), `output_cog_path` (a `Path` object representing the output COG file path), and `type` (a string indicating the type of COG to create).
+
+If the length of `input_paths` is greater than 1, it creates a temporary virtual raster (VRT) file using the `gdalbuildvrt` commant (from GDAL) with the `-separate` option. The VRT is used to combine multiple input TIFF files into a single raster stack.
+
+If the length of `input_paths` is 1, it assumes that `input_paths` contains the path to the existing VRT file.
+
+
+
+'''
+
 def tif2cog(input_paths: List[Path], output_cog_path: Path, type: str) -> None:
     
     if (len(input_paths) > 1):
