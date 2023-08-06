@@ -133,29 +133,30 @@ sample_cube <- function(cube, lon, lat, date) {
 
 
 # This function (as well as 'load_cube_projection') are used to create proxy raster data cubes for future climate data.
-# They load data from a specified STAC web service and define the spatial and temporal extent of the date cube usinf either a set of observations ('use.obs = TRUE') or bounding box coordinates ('use.obs = FALSE').
+# They load data from a specified STAC web service and define the spatial and temporal extent of the date cube using either a set of observations ('use.obs = TRUE') or bounding box coordinates ('use.obs = FALSE').
 # The functions also handle data filtering based on provided collections, layers and other parameters.
 
 
 load_cube <- function(stac_path =
-                        "http://io.biodiversite-quebec.ca/stac/",
-                      limit = 5000,
-                      collections = c('chelsa-clim'),
-                      use.obs = T,
-                      obs = NULL,
-                      lon = "lon",
+                        "http://io.biodiversite-quebec.ca/stac/", # The base URL of the STAC web service
+                      limit = 5000, # maximum number of results to return from the STAC service
+                      collections = c('chelsa-clim'), # character vector of collection IDs
+                      use.obs = T, # boolean. If 'T', provided observations will be used to calculate the spatial extent for the data cube
+                      obs = NULL, # data frame containing the observations (used if 'use.obs' is 'T')
+                      lon = "lon", # the column names in the 'obs' data frame representing longitude and latitude, respectively
                       lat = "lat",
-                      buffer.box = 0,
-                      bbox = NULL,
-                      layers = NULL,
-                      srs.cube = "EPSG:32198",
-                      t0 = "1981-01-01",
+                      buffer.box = 0, # interger specifying a buffer to apply around the observations to calculate the extent and bounding box
+                      bbox = NULL, # numeric vector of size 4 or 6 representing the coordinates of the bbox in the form 'c(xmin, xmax, ymin, ymax)'
+                      # if 'use.obs' is 'FALSE', this parameter can be used to specify the bbox directly
+                      layers = NULL, # the names of bands (layers) to be used in the data cube. If 'NULL', all bands with "eo:bands" attributes will be used
+                      srs.cube = "EPSG:32198", # target spatial reference system (projection)
+                      t0 = "1981-01-01", # ISO8601 datetime strings representing the start and end dates fro the temporal extent of the data cube
                       t1 = "1981-01-01",
-                      left = -2009488, right = 1401061,  bottom = -715776, top = 2597757,
-                      spatial.res = 2000,
-                      temporal.res  = "P1Y",
-                      aggregation = "mean",
-                      resampling = "near") {
+                      left = -2009488, right = 1401061,  bottom = -715776, top = 2597757, # specifying the extent of the bbox when 'use.obs' is 'FALSE'
+                      spatial.res = 2000, # size of pixels in the longitudes and latitudes directions of the data cube
+                      temporal.res  = "P1Y", # a string specifying the size of pixels in the time-direction, expressed as ISO8601 period string
+                      aggregation = "mean", # the aggregation method used to deal with pixels containing data from multiple images. Options are "min", "max", "mean", "median" or "first"
+                      resampling = "near") # the resampling method used in gdalwarp when reading images
 
   # Creating RSTACQuery  query
   s <- rstac::stac(stac_path)
@@ -178,7 +179,7 @@ load_cube <- function(stac_path =
     bottom <- bbox.proj[3]
     top <- bbox.proj[4]
 
-    # Create the bbxo (WGS84 projection)
+    # Create the bbox (WGS84 projection)
     bbox.wgs84 <- points_to_bbox(proj.pts, buffer = buffer.box, proj.to ="+proj=longlat +datum=WGS84")
 
   } else {
