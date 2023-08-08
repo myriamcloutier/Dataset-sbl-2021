@@ -14,7 +14,10 @@ library("raster")
 get_raster_bbox <- function(raster_file) {
   r <- raster(raster_file)
   ext <- extent(r)
-  bbox <- data.frame(xmin = c(ext@xmin), xmax = c(ext@xmax), ymin = c(ext@ymin), ymax = c(ext@ymax))
+  bbox <- data.frame(xmin = as.numeric(ext@xmin), 
+                     xmax = as.numeric(ext@xmax),
+                     ymin = as.numeric(ext@ymin), 
+                     ymax = as.numeric(ext@ymax))
   return(bbox)
 }
 
@@ -31,18 +34,22 @@ all_bboxes <- do.call(rbind, bbox_list)
 # Print the combined bounding box data frame
 print(all_bboxes)
 
+
+
+
 #### To verify the bbox output ####
 
 ortho <- read_stars('F:/Dataset-2021-sbl/2021-05-28/zone3/2021-05-28-sbl-z3-rgb-cog.tif', 
                     proxy = TRUE,
-                    NA_value = 0) # car les valeurs manquantes sont 0 dans ce raster
+                    NA_value = 0)
 plot(ortho, rgb = 1:3) # pour une image couleur
 
-install_github("yonghah/esri2sf")
-library("esri2sf")
+bbox_polygon <- st_as_sf(all_bboxes, coords = c("xmin", "xmax", "ymin", "ymax"))
+plot(bbox_polygon)
 
 carto_stat <- tm_shape(ortho) + # on charge notre orthomosaïque
-  tm_rgba() # pour image RGB avec transparence (a)
+  tm_rgba() + # pour image RGB avec transparence (a)
+  tm_shape()
 carto_stat
 
 
