@@ -7,20 +7,6 @@ from pathlib import Path # provides support for working with file paths
 import tempfile # used to create temporary files and directory
 
 
-### Executing conversion from tif to cog files
-
-# Defining input paths
-#input_path = [
-#    Path("F:/Dataset-2021-sbl/2021-05-28/zone1/2021-05-28-sbl-z1-rgb-cog.tif")
-#]
-
-# Defining output path
-#output_cog_path = Path("F:/Dataset-2021-sbl/2021-05-28/zone1/2021-05-28-sbl-z1-rgb-cog-OUTPUT.tif")
-
-
-
-
-
 def execute_command(command: List[str], timeout: int=600) -> CompletedProcess:
     """Run a subprocess command with error handling and logging functionality.
     """
@@ -45,12 +31,12 @@ def execute_command(command: List[str], timeout: int=600) -> CompletedProcess:
 def tif2cog(input_paths: List[Path], output_cog_path: Path, type: str) -> None:
     temp_vrt_path = None
     
-    if (len(input_paths) > 1):
-        temp_vrt_path = (Path(tempfile.gettempdir()) / next(tempfile._get_candidate_names())).with_suffix(".vrt")
-        vrt_command = ["gdalbuildvrt", "-separate", temp_vrt_path, *input_paths]
-        execute_command(vrt_command)
-    else:
-        temp_vrt_path = input_path[0]
+    #if (len(input_paths) > 1):
+    temp_vrt_path = (Path(tempfile.gettempdir()) / next(tempfile._get_candidate_names())).with_suffix(".vrt")
+    vrt_command = ["gdalbuildvrt", "-separate", temp_vrt_path, *input_paths]
+    execute_command(vrt_command)
+    #else:
+    #    temp_vrt_path = input_path[0]
     
     if (type=='raw'): 
         cog_command = ['gdalwarp', '-of', 'COG', '-co', 'COMPRESS=DEFLATE', temp_vrt_path, output_cog_path]
