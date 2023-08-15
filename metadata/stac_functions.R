@@ -40,7 +40,7 @@ create_projection <- function(obs, lon, lat, proj.from,
 #' @return spatial points in the proj.to projection
 
 # This function takes a data frame ('xy') containing coordinates ('lon' and 'lat') and their initial projection ('proj.from').
-# It reprojectes these coordinates to the target projection ('proj.to') if provided, or it returns the coordinates in the intial projection.
+# It reprojects these coordinates to the target projection ('proj.to') if provided, or it returns the coordinates in the initial projection.
 
 project_coords <- function(xy, lon = "lon", lat = "lat", proj.from, proj.to = NULL) {
   xy <- dplyr::select(xy, dplyr::all_of(c(lon, lat)))
