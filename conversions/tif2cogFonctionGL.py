@@ -1,5 +1,4 @@
 ### Original code from Guillaume Larocque, CSBQ
-### Comments from ChatGPT
 
 # Defining two functions to run subprocess commands and create COGs from TIFF files
 
@@ -20,7 +19,7 @@ If the command completes successully, it logs the successful command exectution 
 It checks if the command's executable is available in the system's PATH using the `which` function from the `shutil` module. If the executable is not found, it raises a `RuntimeError`.
 '''
 
-def run_command(command: List[str], timeout: int=600) -> CompletedProcess:
+def run_command(command: List, timeout: int=600) -> CompletedProcess:
     """Run a subprocess command with error handling and logging functionality.
     """
     process = run(command, capture_output=True, timeout=timeout)
@@ -37,7 +36,8 @@ def run_command(command: List[str], timeout: int=600) -> CompletedProcess:
             raise RuntimeError(f"{command[0]} was not found, is it installed and on the path?")
         else:
             raise ...
-        
+
+
 
 '''
 The `tif2cog` function takes three arguments: `input_paths` (a list of `Path` objects representing input TIFF files), `output_cog_path` (a `Path` object representing the output COG file path), and `type` (a string indicating the type of COG to create).
@@ -70,7 +70,3 @@ def tif2cog(input_paths: List[Path], output_cog_path: Path, type: str) -> None:
         raise FileNotFoundError("The COG was not created, see the full logs for more details.")
 
 
-
-'''
-Alternative function to read file paths from CSV file
-'''
