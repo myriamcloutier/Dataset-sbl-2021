@@ -3,15 +3,14 @@
 # First and last timestamp in folder to get starttime and endtime of drone missions
 ###
 
-library(jpeg)
+# Load the required libraries
 library(exifr)
 
 # Function to extract image timestamp using EXIF data
-
 get_image_timestamp <- function(image_path) {
-  exif_data <- exifr::exifr(image_path)
+  exif_data <- exifr::exifr(image_path, tags = c("DateTimeOriginal"))
   
-  if(!is.null(exif_data$DateTimeOriginal)) {
+  if (!is.null(exif_data$DateTimeOriginal)) {
     return(exif_data$DateTimeOriginal)
   } else {
     return(NULL)
@@ -19,7 +18,6 @@ get_image_timestamp <- function(image_path) {
 }
 
 # Function to process a folder and extract earliest and latest timestamps
-
 process_folder <- function(folder_path) {
   earliest_timestamp <- NULL
   latest_timestamp <- NULL
@@ -51,10 +49,8 @@ process_folder <- function(folder_path) {
   return(list(earliest_timestamp = earliest_timestamp, latest_timestamp = latest_timestamp))
 }
 
-
 # Define the root folder containing the subfolder with JPEG files
-
-root_folder <- "/lefodata/data/drone_missions/2021-09-02-sbl-cloutier-z3-P4RTK-WGS84"
+root_folder <- "F:/Dataset-2021-sbl/2021-09-02-sbl-cloutier-z3-P4RTK-WGS84"
 
 # Process the root folder to get earliest and latest timestamps
 timestamps <- process_folder(root_folder)
@@ -66,9 +62,6 @@ if (!is.null(timestamps$earliest_timestamp) && !is.null(timestamps$latest_timest
 } else {
   cat("No JPEG files with valid timestamps found.\n")
 }
-
-
-
 
 
 
