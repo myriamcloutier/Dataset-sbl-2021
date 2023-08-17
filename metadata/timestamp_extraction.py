@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from PIL import Image
+from PIL import Image 
 
 def get_image_timestamp(image_path):
     try:
@@ -14,7 +14,34 @@ def get_image_timestamp(image_path):
         print(f"Error processing {image_path}: {e}")
     return None
 
-def process_folder(folder_path):
+def process_file_paths(file_paths):
+    data = []
+
+    for image_path in file_paths:
+        timestamp = get_image_timestamp(image_path)
+        if timestamp:
+            data.append({"File Path": image_path, "Timestamp": timestamp})
+
+    return data
+
+if __name__ == "__main__":
+    # Read the CSV file containing file paths
+    csv_file = "filenamesrgb_block.csv"
+    df = pandas.read_csv(csv_file)
+
+    # Get a list of file paths from the DataFrame
+    file_paths = df["File Path"].tolist()
+
+    # Process file paths and create a list of dictionaries
+    result_data = process_file_paths(file_paths)
+
+    # Create a DataFrame from the list of dictionaries
+    result_df = pandas.DataFrame(result_data)
+
+    # Display the DataFrame
+    print(result_df)
+
+#def process_folder(folder_path):
     earliest_timestamp = None
     latest_timestamp = None
     
@@ -32,7 +59,7 @@ def process_folder(folder_path):
     
     return earliest_timestamp, latest_timestamp
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     root_folder = "F:/Dataset-2021-sbl/2021-09-02-sbl-cloutier-z3-P4RTK-WGS84"
     earliest, latest = process_folder(root_folder)
     
