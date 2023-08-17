@@ -25,7 +25,7 @@ def process_file_paths(file_paths):
     return data
 
 if __name__ == "__main__":
-    # Read the CSV file containing file paths
+    # Read the CSV file containing file paths CHANGE FOR CSV CONTAINING PATH TO PHOTOS, NOT ORTHOS
     csv_file = "filenamesrgb_block.csv"
     df = pandas.read_csv(csv_file)
 
