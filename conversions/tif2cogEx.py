@@ -1,6 +1,6 @@
 from pathlib import Path # provides support for working with file paths
 #from tif2cogFonctionGL import tif2cogGL, run_command
-from tif2cog import tif2cog 
+from tif2cog import tif2cog
 
 
 # Defining input paths
