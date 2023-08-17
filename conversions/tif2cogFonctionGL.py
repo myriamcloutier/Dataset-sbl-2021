@@ -50,7 +50,7 @@ If the length of `input_paths` is 1, it assumes that `input_paths` contains the 
 
 '''
 
-def tif2cog(input_paths: List[Path], output_cog_path: Path, type: str) -> None:
+def tif2cogGL(input_paths: List[Path], output_cog_path: Path, type: str) -> None:
     
     if (len(input_paths) > 1):
         temp_vrt_path = (Path(tempfile.gettempdir()) / next(tempfile._get_candidate_names())).with_suffix(".vrt")
