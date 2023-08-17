@@ -4,6 +4,7 @@ from tif2cog import tif2cog
 
 
 # Defining input paths
+# CHANGE TO PATH IN LEFODATA
 input_paths = [
     Path("F:\Dataset-2021-sbl\\2021-05-28\zone1\\2021-05-28-sbl-z1-rgb-cog.tif"),
     Path("F:\Dataset-2021-sbl\\2021-05-28\zone2\\2021-05-28-sbl-z2-rgb-cog.tif"),
