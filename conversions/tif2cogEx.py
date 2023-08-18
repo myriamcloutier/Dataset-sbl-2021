@@ -11,6 +11,12 @@ input_paths = [
     Path("F:\Dataset-2021-sbl\\2021-05-28\zone3\\2021-05-28-sbl-z3-rgb-cog.tif")
 ]
 
+#input_paths = [
+#    Path("\\lefodata\home\data-MSc-cloutier-2021\orthomosaics\quebec_tree_dataset\2021-05-28\2021-05-28-sbl-cloutier-z1-UTM18-MS"),
+ #   Path("\\lefodata\home\data-MSc-cloutier-2021\orthomosaics\quebec_tree_dataset\2021-05-28\2021-05-28-sbl-cloutier-z2-UTM18-MS")
+  #  Path("\\lefodata\home\data-MSc-cloutier-2021\orthomosaics\quebec_tree_dataset\2021-05-28\2021-05-28-sbl-cloutier-z3-UTM18-MS")
+#]
+
 # Defining output path
 output_cog_path = Path("F:\Dataset-2021-sbl\\2021-05-28\zone1\\2021-05-28-sbl-z1-rgb-cog-OUTPUT.tif")
 
