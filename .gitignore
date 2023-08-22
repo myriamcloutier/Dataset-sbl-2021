@@ -208,3 +208,7 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+
+# Folders
+arcgis/
