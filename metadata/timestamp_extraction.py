@@ -24,7 +24,7 @@ def process_file_paths(file_paths):
 
     return data
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Read the CSV file containing file paths CHANGE FOR CSV CONTAINING PATH TO PHOTOS, NOT ORTHOS
     csv_file = "filenamesrgb_TS.csv"
     df = pd.read_csv(csv_file)
@@ -41,25 +41,25 @@ if __name__ == "__main__":
     # Display the DataFrame
     print(result_df)
 
-def process_folder(folder_path):
-    earliest_timestamp = None
-    latest_timestamp = None
+#def process_folder(folder_path):
+ #   earliest_timestamp = None
+  #  latest_timestamp = None
     
-    for root, _, files in os.walk(folder_path):
-        for file in files:
-            if file.lower().endswith(".jpg"):
-                image_path = os.path.join(root, file)
-                timestamp = get_image_timestamp(image_path)
+   # for root, _, files in os.walk(folder_path):
+    #    for file in files:
+     #       if file.lower().endswith(".jpg"):
+      #          image_path = os.path.join(root, file)
+       #         timestamp = get_image_timestamp(image_path)
                 
-                if timestamp:
-                    if not earliest_timestamp or timestamp < earliest_timestamp:
-                        earliest_timestamp = timestamp
-                    if not latest_timestamp or timestamp > latest_timestamp:
-                        latest_timestamp = timestamp
+        #        if timestamp:
+         #           if not earliest_timestamp or timestamp < earliest_timestamp:
+          #              earliest_timestamp = timestamp
+           #         if not latest_timestamp or timestamp > latest_timestamp:
+            #            latest_timestamp = timestamp
     
-    return earliest_timestamp, latest_timestamp
+    #return earliest_timestamp, latest_timestamp
 
-#if __name__ == "__main__":
+if __name__ == "__main__":
     root_folder = "F:/Dataset-2021-sbl/2021-09-02-sbl-cloutier-z3-P4RTK-WGS84"
     earliest, latest = process_folder(root_folder)
     
