@@ -26,8 +26,8 @@ def process_file_paths(file_paths):
 
 if __name__ == "__main__":
     # Read the CSV file containing file paths CHANGE FOR CSV CONTAINING PATH TO PHOTOS, NOT ORTHOS
-    csv_file = "filenamesrgb_block.csv"
-    df = pandas.read_csv(csv_file)
+    csv_file = "filenamesrgb_TS.csv"
+    df = pd.read_csv(csv_file)
 
     # Get a list of file paths from the DataFrame
     file_paths = df["File Path"].tolist()
@@ -36,12 +36,12 @@ if __name__ == "__main__":
     result_data = process_file_paths(file_paths)
 
     # Create a DataFrame from the list of dictionaries
-    result_df = pandas.DataFrame(result_data)
+    result_df = pd.DataFrame(result_data)
 
     # Display the DataFrame
     print(result_df)
 
-#def process_folder(folder_path):
+def process_folder(folder_path):
     earliest_timestamp = None
     latest_timestamp = None
     
