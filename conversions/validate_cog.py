@@ -464,81 +464,9 @@ def read_csv_file(file_path):
     return file_paths
 
 if __name__ == "__main__":
-    csv_path = "path/to/your/csv/file.csv"
+    csv_path = "cog_path.csv"
     file_paths = read_csv_file(csv_path)
     quiet = False
     full_check = None
     sys.exit(main(file_paths, quiet, full_check))
 
-
-
-
-
-#def main(argv=sys.argv):
-    """Return 0 in case of success, 1 for failure."""
-
-    i = 1
-    filename = None
-    quiet = False
-    full_check = None
-    while i < len(argv):
-        if argv[i] == "-q":
-            quiet = True
-        elif argv[i] == "--full-check=yes":
-            full_check = True
-        elif argv[i] == "--full-check=no":
-            full_check = False
-        elif argv[i] == "--full-check=auto":
-            full_check = None
-        elif argv[i][0] == "-":
-            return Usage()
-        elif filename is None:
-            filename = argv[i]
-        else:
-            return Usage()
-
-        i += 1
-
-    if filename is None:
-        return Usage()
-
-    if full_check is None:
-        full_check = filename.startswith("/vsimem/") or os.path.exists(filename)
-
-    try:
-        ret = 0
-        warnings, errors, details = validate(filename, full_check=full_check)
-        if warnings:
-            if not quiet:
-                print("The following warnings were found:")
-                for warning in warnings:
-                    print(" - " + warning)
-                print("")
-        if errors:
-            if not quiet:
-                print("%s is NOT a valid cloud optimized GeoTIFF." % filename)
-                print("The following errors were found:")
-                for error in errors:
-                    print(" - " + error)
-                print("")
-            ret = 1
-        else:
-            if not quiet:
-                print("%s is a valid cloud optimized GeoTIFF" % filename)
-
-        if not quiet and not warnings and not errors:
-            headers_size = min(
-                details["data_offsets"][k] for k in details["data_offsets"]
-            )
-            if headers_size == 0:
-                headers_size = gdal.VSIStatL(filename).size
-            print("\nThe size of all IFD headers is %d bytes" % headers_size)
-    except ValidateCloudOptimizedGeoTIFFException as e:
-        if not quiet:
-            print("%s is NOT a valid cloud optimized GeoTIFF : %s" % (filename, str(e)))
-        ret = 1
-
-    return ret
-
-#if __name__ == "__main__":
- #   sys.exit(main(sys.argv))
