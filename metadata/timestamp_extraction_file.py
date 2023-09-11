@@ -1,3 +1,5 @@
+### This script is used to extract timestamps from TIF files ###
+
 import os
 import pandas as pd
 from datetime import datetime, timedelta
@@ -41,6 +43,7 @@ for index, row in df.iterrows():
         sheet.append([tif_path, rfc3339_utc_timestamp])
     else:
         print(f"Skipped {tif_path} as it's not a TIF file.")
+
 
 
 # Save the Excel file
