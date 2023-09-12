@@ -1,0 +1,96 @@
+{
+    "NaN": {},
+    "type": [
+        "Feature"
+    ],
+    "id": [
+        "2021-05-28-sbl-z1-rgb"
+    ],
+    "bbox": [
+        "576850.81,577626.72,5093009.35,5093765.86"
+    ],
+    "properties": {
+        "title": {
+            "__default_subsubtitle__": [
+                "2021-05-28-sbl-z1-rgb-cog.tif"
+            ]
+        },
+        "description": {
+            "__default_subsubtitle__": [
+                "RGB orthomosaic of zone 1 SBL, 2021-05-28. WGS84 / UTM zone 18N."
+            ]
+        },
+        "datetime": {
+            "__default_subsubtitle__": [
+                "2021-05-28T17:50:15Z"
+            ]
+        },
+        "start_datetime": {
+            "__default_subsubtitle__": [
+                "2021-05-28T17:50:15Z"
+            ]
+        },
+        "end_datetime": {
+            "__default_subsubtitle__": [
+                "2021-05-28T18:43:50Z"
+            ]
+        },
+        "created": {
+            "__default_subsubtitle__": [
+                "2022-03-20T22:25:00Z"
+            ]
+        },
+        "updated": {
+            "__default_subsubtitle__": [
+                "2023-08-25T02:14:04Z"
+            ]
+        },
+        "platform": {
+            "__default_subsubtitle__": [
+                "DJI Phantom 4 RTK"
+            ]
+        },
+        "instrument": {
+            "__default_subsubtitle__": [
+                "DJI Phantom 4 RTK"
+            ]
+        },
+        "gsd": {
+            "__default_subsubtitle__": [
+                0.0164
+            ]
+        },
+        "proj:epsg": {
+            "__default_subsubtitle__": [
+                32618
+            ]
+        },
+        "sci:doi": {
+            "__default_subsubtitle__": [
+                "10.5281/zenodo.8148479"
+            ]
+        }
+    },
+    "geometry": {
+        "type": {
+            "__default_subsubtitle__": [
+                "Polygon"
+            ]
+        },
+        "coordinate": {
+            "__default_subsubtitle__": [
+                "[576867.1133,5093343.3734],[577020.5291,5093155.0020],[577090.4402,5093107.0999],[577163.5878,5093028.12639],[577213.4319,5093033.3049],[577394.0354,5093230.0916],[577607.0051,5093420.4050],[577592.7640,5093579.6469],[577546.8039,5093659.2677],[577452.2945,5093749.8932],[577176.5344,5093699.4019],[577033.4757,5093502.6152],[576937.9012,5093411.1316]"
+            ]
+        }
+    },
+    "assets": {
+        "sci:publication": {
+            "doi": [
+                "https://doi.org/10.1101/2023.08.03.548604"
+            ],
+            "citation": [
+                "Cloutier, M., Germain, M., & Laliberté, E. (2023). Influence of Temperate Forest Autumn Leaf Phenology on Segmentation of Tree Species from UAV Imagery Using Deep Learning (p. 2023.08.03.548604). bioRxiv. https://doi.org/10.1101/2023.08.03.548604"
+            ]
+        }
+    }
+}
