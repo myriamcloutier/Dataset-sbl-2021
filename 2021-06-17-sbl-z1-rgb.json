@@ -1,0 +1,80 @@
+{
+    "type": "Feature",
+    "stac_version": "1.0.0",
+    "id": "2021-06-17-sbl-z1-rgb",
+    "properties": {
+        "title": "2021-06-17-sbl-z1-rgb-cog.tif",
+        "description": "RGB orthomosaic of zone 1 SBL, 2021-06-17. WGS84 / UTM zone 18N.",
+        "start_datetime": "2021-06-17T16:54:24Z",
+        "end_datetime": "2021-06-17T17:47:18Z",
+        "created": "2022-02-25T02:45:38Z",
+        "updated": "2023-08-25T02:29:01Z",
+        "platform": "DJI Phantom 4 RTK",
+        "instrument": "DJI Phantom 4 RTK",
+        "gsd": 0.0164,
+        "sci:doi": "10.5281/zenodo.8148479",
+        "sci:publication": "https://doi.org/10.1101/2023.08.03.548604",
+        "proj:epsg": 32618,
+        "datetime": "2021-06-17T16:54:24Z"
+    },
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                577138.2137,
+                5093714.2908
+            ],
+            [
+                577027.1601,
+                5093595.4564
+            ],
+            [
+                577018.672,
+                5093454.6943
+            ],
+            [
+                576891.3494,
+                5093337.9821
+            ],
+            [
+                577042.7218,
+                5093085.459
+            ],
+            [
+                577110.6271,
+                5093041.6034
+            ],
+            [
+                577161.5562,
+                5093017.5537
+            ],
+            [
+                577480.5698,
+                5093363.4465
+            ],
+            [
+                577549.8898,
+                5093505.6234
+            ],
+            [
+                577572.525,
+                5093608.896
+            ],
+            [
+                577498.9609,
+                5093724.1938
+            ]
+        ]
+    },
+    "links": [],
+    "assets": {},
+    "bbox": [
+        576850.47,
+        577617.71,
+        5092986.46,
+        5093773.38
+    ],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+    ]
+}

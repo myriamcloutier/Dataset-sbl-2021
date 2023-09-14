@@ -1,0 +1,84 @@
+{
+    "type": "Feature",
+    "stac_version": "1.0.0",
+    "id": "2021-07-21-sbl-z3-rgb",
+    "properties": {
+        "title": "2021-07-21-sbl-z3-rgb-cog.tif",
+        "description": "RGB orthomosaic of zone 3 SBL, 2021-07-21. WGS84 / UTM zone 18N.",
+        "start_datetime": "2021-07-21T14:43:45Z",
+        "end_datetime": "2021-07-21T14:59:03Z",
+        "created": "2022-02-25T00:38:41Z",
+        "updated": "2023-08-25T02:51:50Z",
+        "platform": "DJI Phantom 4 RTK",
+        "instrument": "DJI Phantom 4 RTK",
+        "gsd": 0.0164,
+        "sci:doi": "10.5281/zenodo.8148479",
+        "sci:publication": "https://doi.org/10.1101/2023.08.03.548604",
+        "proj:epsg": 32618,
+        "datetime": "2021-07-21T14:43:45Z"
+    },
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                576777.9559,
+                5093773.6557
+            ],
+            [
+                576593.4546,
+                5093613.4433
+            ],
+            [
+                576660.2488,
+                5093498.5387
+            ],
+            [
+                576712.0959,
+                5093477.5197
+            ],
+            [
+                576738.2531,
+                5093437.3498
+            ],
+            [
+                576848.9539,
+                5093337.8592
+            ],
+            [
+                576949.8457,
+                5093387.838
+            ],
+            [
+                576993.2851,
+                5093474.7171
+            ],
+            [
+                577038.126,
+                5093554.5898
+            ],
+            [
+                577035.7905,
+                5093630.2587
+            ],
+            [
+                576963.8585,
+                5093698.454
+            ],
+            [
+                576855.0261,
+                5093756.3734
+            ]
+        ]
+    },
+    "links": [],
+    "assets": {},
+    "bbox": [
+        576566.45,
+        577083.02,
+        5093315.71,
+        5093807.62
+    ],
+    "stac_extensions": [
+        "https://stac-extensions.github.io/projection/v1.1.0/schema.json"
+    ]
+}
