@@ -1,7 +1,9 @@
 from fiona import Geometry
 import pandas as pd
 
-excel_file = "testjson.xlsx"
+#excel_file = "JSON_COG.xlsx"
+#excel_file = "JSON_COPC.xlsx"
+excel_file = "JSON_Ann.xlsx"
 df = pd.read_excel(excel_file)
 
 import os
@@ -83,13 +85,15 @@ for index, row in df.iterrows():
         properties={
             'title': row['title'],
             'description': row['description'],
-            'start_datetime': row['start_datetime'],
-            'end_datetime': row['end_datetime'],
+            #'start_datetime': row['start_datetime'],
+            #'end_datetime': row['end_datetime'],
             'created': row['created'],
             'updated': row['updated'],
-            'platform': row['platform'],
-            'instrument': row['instrument'],
-            'gsd': row['gsd'],
+            #'platform': row['platform'],
+            #'instrument': row['instrument'],
+            #'gsd': row['gsd'],
+            #'pc:count': row['pc:count'],
+            #'pc:encoding': row['pc:encoding'],
             'sci:doi' : '10.5281/zenodo.8148479',
             'sci:publication' : 'https://doi.org/10.1101/2023.08.03.548604'
         },
@@ -105,7 +109,7 @@ for index, row in df.iterrows():
     item_json = item.to_dict()
 
     # Define the filename for the JSON file
-    item_filename = f"{item_id}.json"
+    item_filename = f"{item_id}_metadata.json"
     item_filepath = os.path.join(output_directory, item_filename)
 
     # Save the STAC item as JSON in the specified directory
