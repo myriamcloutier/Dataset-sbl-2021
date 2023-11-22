@@ -34,7 +34,7 @@ def process_folder(folder_path):
                         continue  # Skip this file if timestamp parsing fails
 
                     # Apply 4-hour time offset
-                    timestamp += timedelta(hours=4)
+                    #timestamp += timedelta(hours=4)
 
                     if not earliest_timestamp or timestamp < earliest_timestamp:
                         earliest_timestamp = timestamp
@@ -47,7 +47,7 @@ def process_folder(folder_path):
 
 if __name__ == "__main__":
     # Read the CSV file containing folder paths
-    csv_file = "filenamesrgb_TS_lefodata.csv"
+    csv_file = "filenames_mission_sblpheno2023.csv"
     df = pd.read_csv(csv_file)
     
     # Create a list to store results
