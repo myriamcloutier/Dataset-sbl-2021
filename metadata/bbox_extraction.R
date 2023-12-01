@@ -24,9 +24,6 @@ get_raster_bbox <- function(raster_files) {
 
 # List of raster file paths
 
-#raster_files <- data.frame(read_csv("filenamesrgb_block.csv", col_names = FALSE))
-#raster_files
-
 raster_files <- data.frame(read_csv("filenamesann.csv", col_names = FALSE))
 raster_files
 
