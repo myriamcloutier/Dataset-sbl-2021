@@ -1,12 +1,8 @@
-# Dataset SBL-2021
-Scripts used to generate the dataset SBL-2021. RGB imagery, DSM and Sfm-derived point clouds acquired from drone imagery at the Station de Biologie des Laurentides of Université de Montréal, Saint-Hippolyte, Quebec, Canada.
+# Metadata extraction
+Scripts used to generate the metadata for 2021_sbl_cloutier. 
 
 Includes 
-* tiling of RGB imagery and annotations
-* reconstruction of mosaic after model training
-* conversion from GeoTIFF to cloud-optimized GeoTIFF (COG) and point cloud to cloud-optimized point cloud (COPC)
-
-May be added
-* script for model training and inference
-* confusion matrices generation from predictions
-* metric per class generation from predictions
+* Conversion from GeoTIFF to cloud-optimized GeoTIFF (COG) and point cloud to cloud-optimized point cloud (COPC)
+* Timestamp extraction for tif files, picture folder and .laz (with .csv example)
+* Bounding box extraction (with .csv example)
+* Conversion of metadata from Excel to JSON (with Excel templates)
