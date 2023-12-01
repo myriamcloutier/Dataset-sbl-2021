@@ -1,6 +1,6 @@
 from pathlib import Path
 import csv
-from tif2cogmodif import tif2cog
+from tif2cogfunc import tif2cog
 
 # Defining input paths from CSV file
 
