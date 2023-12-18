@@ -47,7 +47,7 @@ def process_folder(folder_path):
 
 if __name__ == "__main__":
     # Read the CSV file containing folder paths
-    csv_file = "filename_mission_co2_2023.csv"
+    csv_file = "filenamesrgb_TS_lidar.csv"
     df = pd.read_csv(csv_file)
     
     # Create a list to store results
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     results_df["Latest Timestamp"] = pd.to_datetime(results_df["Latest Timestamp"]).dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
     # Save the results DataFrame to an Excel file
-    excel_output_file = "timestamps_rgb_co2_2023.xlsx"
+    excel_output_file = "timestamps_rgb_lidar.xlsx"
     results_df.to_excel(excel_output_file, index=False)
     
     print("Timestamps saved to", excel_output_file)
