@@ -1,5 +1,15 @@
 ### This script is used to extract timestamps from LAZ files ###
 
+'''
+Extraction of timestamp for individual .laz files
+
+Author: Myriam Cloutier
+
+Timestamp is exported in an Excel in RFC 3339 UTC format. 
+To make sure the time is in UTC (for Quebec daylight saving time), apply the 4-hour time offset in when defining the time zone offset.
+'''
+
+
 import os
 import struct
 import datetime

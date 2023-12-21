@@ -1,3 +1,12 @@
+'''
+Extraction of timestamp for .jpg files within a folder
+
+Author: Myriam Cloutier
+
+Timestamp is exported in an Excel in RFC 3339 UTC format. 
+To make sure the time is in UTC (for Quebec daylight saving time), apply the 4-hour time offset in when defining the "process_folder" function.
+'''
+
 import os
 import pandas as pd
 from PIL import Image 
@@ -47,7 +56,7 @@ def process_folder(folder_path):
 
 if __name__ == "__main__":
     # Read the CSV file containing folder paths
-    csv_file = "filenamesrgb_misc2.csv"
+    csv_file = "filenamesrgb_misc2.csv" # Speciy correct csv file
     df = pd.read_csv(csv_file)
     
     # Create a list to store results
@@ -76,18 +85,8 @@ if __name__ == "__main__":
     results_df["Latest Timestamp"] = pd.to_datetime(results_df["Latest Timestamp"]).dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
     # Save the results DataFrame to an Excel file
-    excel_output_file = "timestamps_rgb_misc2.xlsx"
+    excel_output_file = "timestamps_output.xlsx" 
     results_df.to_excel(excel_output_file, index=False)
     
     print("Timestamps saved to", excel_output_file)
-
-#if __name__ == "__main__":
- #   root_folder = "F:/Dataset-2021-sbl/missions_drones/2021-09-02-sbl-cloutier-z3-P4RTK-WGS84"
-  #  earliest, latest = process_folder(root_folder)
-    
-  #  if earliest and latest:
-   #     print(f"Earliest timestamp: {earliest}")
-    #    print(f"Latest timestamp: {latest}")
-  #  else:
-   #     print("No JPEG files with valid timestamps found.")
 
